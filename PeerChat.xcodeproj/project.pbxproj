@@ -19,6 +19,11 @@
 		24963BEB17E3078500907DAC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24963BD317E3078500907DAC /* UIKit.framework */; };
 		24963BF317E3078500907DAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24963BF117E3078500907DAC /* InfoPlist.strings */; };
 		24963BF517E3078500907DAC /* PeerChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24963BF417E3078500907DAC /* PeerChatTests.m */; };
+		24963C0517E307BB00907DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24963BFE17E307BB00907DAC /* Main.storyboard */; };
+		24963C0617E307BB00907DAC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24963C0017E307BB00907DAC /* MainViewController.m */; };
+		24963C0717E307BB00907DAC /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24963C0217E307BB00907DAC /* ChatViewController.m */; };
+		24963C0817E307BB00907DAC /* ChatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24963C0417E307BB00907DAC /* ChatClient.m */; };
+		24963C0A17E307D100907DAC /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24963C0917E307D100907DAC /* MultipeerConnectivity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,14 @@
 		24963BF017E3078500907DAC /* PeerChatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PeerChatTests-Info.plist"; sourceTree = "<group>"; };
 		24963BF217E3078500907DAC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24963BF417E3078500907DAC /* PeerChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeerChatTests.m; sourceTree = "<group>"; };
+		24963BFE17E307BB00907DAC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		24963BFF17E307BB00907DAC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		24963C0017E307BB00907DAC /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		24963C0117E307BB00907DAC /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		24963C0217E307BB00907DAC /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		24963C0317E307BB00907DAC /* ChatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatClient.h; sourceTree = "<group>"; };
+		24963C0417E307BB00907DAC /* ChatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatClient.m; sourceTree = "<group>"; };
+		24963C0917E307D100907DAC /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24963C0A17E307D100907DAC /* MultipeerConnectivity.framework in Frameworks */,
 				24963BD217E3078500907DAC /* CoreGraphics.framework in Frameworks */,
 				24963BD417E3078500907DAC /* UIKit.framework in Frameworks */,
 				24963BD017E3078500907DAC /* Foundation.framework in Frameworks */,
@@ -96,6 +110,7 @@
 		24963BCE17E3078500907DAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24963C0917E307D100907DAC /* MultipeerConnectivity.framework */,
 				24963BCF17E3078500907DAC /* Foundation.framework */,
 				24963BD117E3078500907DAC /* CoreGraphics.framework */,
 				24963BD317E3078500907DAC /* UIKit.framework */,
@@ -107,6 +122,13 @@
 		24963BD517E3078500907DAC /* PeerChat */ = {
 			isa = PBXGroup;
 			children = (
+				24963BFE17E307BB00907DAC /* Main.storyboard */,
+				24963BFF17E307BB00907DAC /* MainViewController.h */,
+				24963C0017E307BB00907DAC /* MainViewController.m */,
+				24963C0117E307BB00907DAC /* ChatViewController.h */,
+				24963C0217E307BB00907DAC /* ChatViewController.m */,
+				24963C0317E307BB00907DAC /* ChatClient.h */,
+				24963C0417E307BB00907DAC /* ChatClient.m */,
 				24963BDE17E3078500907DAC /* AppDelegate.h */,
 				24963BDF17E3078500907DAC /* AppDelegate.m */,
 				24963BE117E3078500907DAC /* Images.xcassets */,
@@ -219,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24963C0517E307BB00907DAC /* Main.storyboard in Resources */,
 				24963BDA17E3078500907DAC /* InfoPlist.strings in Resources */,
 				24963BE217E3078500907DAC /* Images.xcassets in Resources */,
 			);
@@ -239,7 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24963C0817E307BB00907DAC /* ChatClient.m in Sources */,
 				24963BE017E3078500907DAC /* AppDelegate.m in Sources */,
+				24963C0617E307BB00907DAC /* MainViewController.m in Sources */,
+				24963C0717E307BB00907DAC /* ChatViewController.m in Sources */,
 				24963BDC17E3078500907DAC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
