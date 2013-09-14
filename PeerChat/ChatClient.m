@@ -132,7 +132,9 @@ MCNearbyServiceBrowserDelegate>
 	self.roomName = [[NSString alloc] initWithData:context encoding:NSUTF8StringEncoding];
 	self.handler = invitationHandler;
 	if ([self.delegate respondsToSelector:@selector(chatClient:didFindRoom:)]) {
-		[self.delegate chatClient:self didFindRoom:self.roomName];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.delegate chatClient:self didFindRoom:self.roomName];
+		});
 	}
 	[self stopRoomSearch];
 }
