@@ -57,7 +57,7 @@ ChatClientDelegate>
 }
 
 #pragma mark - ChatClientDelegate
-- (void)chatClientDidRecieveMessage:(ChatClient *)client {
+- (void)chatClientDidReceiveMessage:(ChatClient *)client {
 	[self.tableView reloadData];
 }
 

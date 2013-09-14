@@ -75,7 +75,7 @@ MCNearbyServiceBrowserDelegate>
 - (void)sendMessage:(NSString *)message {
 	NSError *error;
 	BOOL result = [self.session sendData:[message dataUsingEncoding:NSUTF8StringEncoding]
-								 toPeers:[self.session connectedPeers]
+								 toPeers:self.session.connectedPeers
 								withMode:MCSessionSendDataUnreliable
 								   error:&error];
 	if (!result || error) {
@@ -97,9 +97,9 @@ MCNearbyServiceBrowserDelegate>
 	messageObj.date = [NSDate date];
 	messageObj.message = message;
 	[self.chatMessages insertObject:messageObj atIndex:0];
-	if ([self.delegate respondsToSelector:@selector(chatClientDidRecieveMessage:)]) {
+	if ([self.delegate respondsToSelector:@selector(chatClientDidReceiveMessage:)]) {
 		dispatch_async(dispatch_get_main_queue(), ^{
-			[self.delegate chatClientDidRecieveMessage:self];
+			[self.delegate chatClientDidReceiveMessage:self];
 		});
 	}
 }

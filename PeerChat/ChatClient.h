@@ -11,7 +11,7 @@
 @class ChatClient;
 @protocol ChatClientDelegate <NSObject>
 @optional
-- (void)chatClientDidRecieveMessage:(ChatClient *)client;
+- (void)chatClientDidReceiveMessage:(ChatClient *)client;
 - (void)chatClient:(ChatClient *)client didFindRoom:(NSString *)roomName;
 @end
 
