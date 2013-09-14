@@ -165,7 +165,13 @@
                             <outlet property="delegate" destination="4sL-Ln-EFb" id="lOQ-RP-B6P"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="AZx-nU-Rno"/>
+                    <navigationItem key="navigationItem" id="AZx-nU-Rno">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="eHa-rP-Z3U">
+                            <connections>
+                                <action selector="sendPhotoAction:" destination="4sL-Ln-EFb" id="7Ix-08-fMb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="oSendMessageTextField" destination="3fL-fb-2Vf" id="MMA-us-3vP"/>
                     </connections>

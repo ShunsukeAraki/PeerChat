@@ -22,6 +22,8 @@
 <UITableViewDataSource,
 UITableViewDelegate,
 UITextFieldDelegate,
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate,
 ChatClientDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *oSendMessageTextField;
 
@@ -45,9 +47,10 @@ ChatClientDelegate>
 	self.client.delegate = self;
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-	self.client = nil;
+- (void)didMoveToParentViewController:(UIViewController *)parent {
+	if (!parent) {
+		self.client = nil;
+	}
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,6 +62,10 @@ ChatClientDelegate>
 #pragma mark - ChatClientDelegate
 - (void)chatClientDidReceiveMessage:(ChatClient *)client {
 	[self.tableView reloadData];
+}
+
+- (void)chatClient:(ChatClient *)client didReceiveImage:(UIImage *)image {
+	[self showImage:image];
 }
 
 #pragma mark - UITableViewDataSource
@@ -98,6 +105,42 @@ ChatClientDelegate>
 	}
 	self.oSendMessageTextField.text = @"";
 	[self.oSendMessageTextField resignFirstResponder];
+}
+
+- (IBAction)sendPhotoAction:(id)sender {
+	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+	picker.delegate = self;
+	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	[self presentViewController:picker animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+	[picker dismissViewControllerAnimated:YES completion:nil];
+	UIImage *image = info[UIImagePickerControllerOriginalImage];
+	NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:@"send.png"];
+	[UIImagePNGRepresentation(image) writeToFile:path atomically:YES];
+	[self showImage:info[UIImagePickerControllerOriginalImage]];
+	[self.client sendResourceAtURL:[NSURL fileURLWithPath:path]];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+	[picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark -
+- (void)showImage:(UIImage *)image {
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+	imageView.contentMode = UIViewContentModeScaleAspectFit;
+	imageView.frame = self.view.bounds;
+	UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTap:)];
+	[imageView addGestureRecognizer:tap];
+	imageView.userInteractionEnabled = YES;
+	[self.view addSubview:imageView];
+}
+
+- (void)imageTap:(UITapGestureRecognizer *)gesture {
+	[gesture.view removeFromSuperview];
 }
 
 @end

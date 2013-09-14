@@ -13,6 +13,7 @@
 @optional
 - (void)chatClientDidReceiveMessage:(ChatClient *)client;
 - (void)chatClient:(ChatClient *)client didFindRoom:(NSString *)roomName;
+- (void)chatClient:(ChatClient *)client didReceiveImage:(UIImage *)image;
 @end
 
 @interface Message : NSObject
@@ -30,4 +31,5 @@
 - (void)createRoom:(NSString *)name;
 - (void)joinRoom;
 - (void)sendMessage:(NSString *)message;
+- (void)sendResourceAtURL:(NSURL *)url;
 @end

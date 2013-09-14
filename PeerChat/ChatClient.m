@@ -85,6 +85,14 @@ MCNearbyServiceBrowserDelegate>
 	}
 }
 
+- (void)sendResourceAtURL:(NSURL *)url {
+	[self.session.connectedPeers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		NSProgress *progress = [self.session sendResourceAtURL:url withName:@"image" toPeer:obj withCompletionHandler:^(NSError *error) {
+			NSLog(@"err:%@", error);
+		}];
+	}];
+}
+
 #pragma mark - property
 - (NSArray *)messages {
 	return [NSArray arrayWithArray:self.chatMessages];
@@ -122,9 +130,22 @@ MCNearbyServiceBrowserDelegate>
 }
 
 - (void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress {
+	NSLog(@"start resource download");
 }
 
 - (void)session:(MCSession *)session didFinishReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID atURL:(NSURL *)localURL withError:(NSError *)error {
+	if (error) {
+		NSLog(@"end resource download with error : %@", error);
+		return;
+	}
+	NSData *data = [NSData dataWithContentsOfURL:localURL];
+	NSLog(@"end resource download. %d bytes", data.length);
+	UIImage *image = [UIImage imageWithData:data];
+	if ([self.delegate respondsToSelector:@selector(chatClient:didReceiveImage:)]) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.delegate chatClient:self didReceiveImage:image];
+		});
+	}
 }
 
 #pragma mark - MCNearbyServiceAdvertiserDelegate
