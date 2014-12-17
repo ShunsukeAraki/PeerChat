@@ -42,9 +42,9 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llK-FB-vsE">
-                                <rect key="frame" x="108" y="147" width="104" height="30"/>
+                                <rect key="frame" x="20" y="147" width="136" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="FindNearRoom">
+                                <state key="normal" title="FindNearChatRoom">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -58,9 +58,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koG-A2-FNk">
-                                <rect key="frame" x="117" y="253" width="87" height="30"/>
+                                <rect key="frame" x="23" y="252" width="119" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="CreateRoom">
+                                <state key="normal" title="CreateChatRoom">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -68,9 +68,26 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TWF-wI-9hg">
-                                <rect key="frame" x="232" y="152" width="20" height="20"/>
+                                <rect key="frame" x="161" y="152" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRo-1o-Luv">
+                                <rect key="frame" x="185" y="147" width="114" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="FindNearCanvas">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sss-wA-AgP">
+                                <rect key="frame" x="202" y="252" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="CreateCanvas">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createCanvasRoomAction:" destination="vE2-Ri-rkz" eventType="touchUpInside" id="o9r-mR-d3a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -81,6 +98,7 @@
                         <outlet property="oNickNameTextField" destination="opg-W3-MUp" id="5rV-jc-A6u"/>
                         <outlet property="oRoomNameTextField" destination="8hn-KP-F5x" id="MvZ-52-vXN"/>
                         <segue destination="4sL-Ln-EFb" kind="push" identifier="toChat" id="Pww-Gm-fbi"/>
+                        <segue destination="JyC-Nq-Jkr" kind="push" identifier="toCanvas" id="bBQ-Jh-BTr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="028-jq-rLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,6 +191,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeP-5D-1Km" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1484" y="-114"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nkE-5F-bto">
+            <objects>
+                <viewController id="JyC-Nq-Jkr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5bn-TP-6z3"/>
+                        <viewControllerLayoutGuide type="bottom" id="O0n-YH-841"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9L4-SV-1lC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aob-YQ-MSd" customClass="TouchDrawView">
+                                <rect key="frame" x="0.0" y="67" width="320" height="413"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="52e-gR-KoI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHZ-oO-1jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1476" y="465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YmT-ca-Qug">

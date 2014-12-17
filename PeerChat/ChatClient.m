@@ -37,7 +37,6 @@ MCNearbyServiceBrowserDelegate>
 		MCPeerID *peerID = [[MCPeerID alloc] initWithDisplayName:name];
 		_session = [[MCSession alloc] initWithPeer:peerID];
 		_session.delegate = self;
-		_chatMessages = [NSMutableArray array];
 		_advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerID
 														discoveryInfo:nil
 														  serviceType:@"test-chat"];
@@ -45,6 +44,7 @@ MCNearbyServiceBrowserDelegate>
 		_browser = [[MCNearbyServiceBrowser alloc] initWithPeer:peerID
 													serviceType:@"test-chat"];
 		_browser.delegate = self;
+		_chatMessages = @[].mutableCopy;
 	}
 	return self;
 }
@@ -139,7 +139,7 @@ MCNearbyServiceBrowserDelegate>
 	[self stopRoomSearch];
 }
 
-#pragma mark -MCNearbyServiceBrowserDelegate
+#pragma mark - MCNearbyServiceBrowserDelegate
 - (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info {
 	NSData *context = [self.roomName dataUsingEncoding:NSUTF8StringEncoding];
 	[browser invitePeer:peerID toSession:self.session withContext:context timeout:0];

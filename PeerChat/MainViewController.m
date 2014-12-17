@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "ChatViewController.h"
+#import "CanvasViewController.h"
 #import "ChatClient.h"
 
 @interface MainViewController ()
@@ -58,6 +59,9 @@ ChatClientDelegate>
 		vc.client = self.client;
 		self.client = nil;
 		vc.title = self.chatRoomName;
+	} else if ([@"toCanvas" compare:segue.identifier] == NSOrderedSame) {
+		CanvasViewController *vc = segue.destinationViewController;
+		vc.title = self.chatRoomName;
 	}
 }
 
@@ -95,6 +99,10 @@ ChatClientDelegate>
 	self.chatRoomName = self.oRoomNameTextField.text;
 	[self.client createRoom:self.chatRoomName];
 	[self performSegueWithIdentifier:@"toChat" sender:self];
+}
+
+- (IBAction)createCanvasRoomAction:(id)sender {
+	[self performSegueWithIdentifier:@"toCanvas" sender:self];
 }
 
 - (void)doneAction {

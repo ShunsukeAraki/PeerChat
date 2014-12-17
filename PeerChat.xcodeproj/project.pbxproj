@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24285ED117EB203900516749 /* CanvasClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24285ED017EB203900516749 /* CanvasClient.m */; };
+		2491185C17E3F77C003589F5 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2491185B17E3F77C003589F5 /* CanvasViewController.m */; };
+		2491185F17E3FE83003589F5 /* TouchDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2491185E17E3FE83003589F5 /* TouchDrawView.m */; };
 		24963BD017E3078500907DAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24963BCF17E3078500907DAC /* Foundation.framework */; };
 		24963BD217E3078500907DAC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24963BD117E3078500907DAC /* CoreGraphics.framework */; };
 		24963BD417E3078500907DAC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24963BD317E3078500907DAC /* UIKit.framework */; };
@@ -37,6 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24285ECF17EB203900516749 /* CanvasClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasClient.h; sourceTree = "<group>"; };
+		24285ED017EB203900516749 /* CanvasClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasClient.m; sourceTree = "<group>"; };
+		2491185A17E3F77C003589F5 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
+		2491185B17E3F77C003589F5 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
+		2491185D17E3FE83003589F5 /* TouchDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDrawView.h; sourceTree = "<group>"; };
+		2491185E17E3FE83003589F5 /* TouchDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDrawView.m; sourceTree = "<group>"; };
 		24963BCC17E3078500907DAC /* PeerChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24963BCF17E3078500907DAC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24963BD117E3078500907DAC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,8 +136,14 @@
 				24963C0017E307BB00907DAC /* MainViewController.m */,
 				24963C0117E307BB00907DAC /* ChatViewController.h */,
 				24963C0217E307BB00907DAC /* ChatViewController.m */,
+				2491185A17E3F77C003589F5 /* CanvasViewController.h */,
+				2491185B17E3F77C003589F5 /* CanvasViewController.m */,
+				2491185D17E3FE83003589F5 /* TouchDrawView.h */,
+				2491185E17E3FE83003589F5 /* TouchDrawView.m */,
 				24963C0317E307BB00907DAC /* ChatClient.h */,
 				24963C0417E307BB00907DAC /* ChatClient.m */,
+				24285ECF17EB203900516749 /* CanvasClient.h */,
+				24285ED017EB203900516749 /* CanvasClient.m */,
 				24963BDE17E3078500907DAC /* AppDelegate.h */,
 				24963BDF17E3078500907DAC /* AppDelegate.m */,
 				24963BE117E3078500907DAC /* Images.xcassets */,
@@ -213,6 +228,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = individual;
 				TargetAttributes = {
+					24963BCB17E3078500907DAC = {
+						DevelopmentTeam = Q5R6QRALMJ;
+					};
 					24963BE617E3078500907DAC = {
 						TestTargetID = 24963BCB17E3078500907DAC;
 					};
@@ -263,7 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				24963C0817E307BB00907DAC /* ChatClient.m in Sources */,
+				2491185F17E3FE83003589F5 /* TouchDrawView.m in Sources */,
 				24963BE017E3078500907DAC /* AppDelegate.m in Sources */,
+				2491185C17E3F77C003589F5 /* CanvasViewController.m in Sources */,
+				24285ED117EB203900516749 /* CanvasClient.m in Sources */,
 				24963C0617E307BB00907DAC /* MainViewController.m in Sources */,
 				24963C0717E307BB00907DAC /* ChatViewController.m in Sources */,
 				24963BDC17E3078500907DAC /* main.m in Sources */,
@@ -385,10 +406,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PeerChat/PeerChat-Prefix.pch";
 				INFOPLIST_FILE = "PeerChat/PeerChat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -398,10 +422,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PeerChat/PeerChat-Prefix.pch";
 				INFOPLIST_FILE = "PeerChat/PeerChat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -467,6 +494,7 @@
 				24963BFA17E3078500907DAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24963BFB17E3078500907DAC /* Build configuration list for PBXNativeTarget "PeerChatTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +503,7 @@
 				24963BFD17E3078500907DAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
